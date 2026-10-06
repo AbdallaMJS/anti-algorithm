@@ -67,23 +67,30 @@ hr{border-color:var(--line)!important;}
 </style>
 """, unsafe_allow_html=True)
 
+from typing import List, Dict, Any
+
 if "history" not in st.session_state:
     st.session_state.history = []
 if "last" not in st.session_state:
     st.session_state.last = None
 
-def average_vector(vectors):
+@st.cache_data
+def average_vector(vectors: List[List[float]]) -> List[float]:
+    """Calculates the average vector from a list of numerical vectors."""
     return [sum(values) / len(values) for values in zip(*vectors)]
 
-def normalized_distance(a, b):
+def normalized_distance(a: List[float], b: List[float]) -> float:
+    """Calculates the normalized Euclidean distance between two vectors."""
     raw = sqrt(sum((x-y)**2 for x, y in zip(a, b)))
     return raw / sqrt(6 * (100 ** 2))
 
-def anti_match_score(a, b):
+def anti_match_score(a: List[float], b: List[float]) -> int:
+    """Calculates an anti-match score (0-100) based on Euclidean distance."""
     d = normalized_distance(a, b)
     return round(max(35, min(99, 38 + d * 82)))
 
-def distance_label(score):
+def distance_label(score: int) -> str:
+    """Returns a human-readable label for a given score."""
     if score >= 90:
         return "Extreme departure"
     if score >= 80:
@@ -94,7 +101,9 @@ def distance_label(score):
         return "Meaningfully different"
     return "Some overlap"
 
-def build_results(category, user_vector):
+@st.cache_data
+def build_results(category: str, user_vector: List[float]) -> List[Dict[str, Any]]:
+    """Builds and ranks recommendation results based on distance from the user vector."""
     axes = AXES[category]
     rows = []
     for item in CATALOG[category]:
