@@ -30,31 +30,38 @@ An innovative, explainable recommendation prototype designed to challenge user p
 
 To run this project locally, follow these steps:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/AbdallaMJS/anti-algorithm.git
-   cd anti-algorithm
-   ```
+## Setup and Run
 
-2. **Set up a virtual environment (recommended):**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use: venv\Scripts\activate
-   ```
+### 1. Clone the repository
 
-3. **Install the dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+```
+git clone https://github.com/AbdallaMJS/anti-algorithm.git
+cd anti-algorithm
+```
+2. Create a virtual environment
+On macOS or Linux:
+```
+python3 -m venv venv
+```
+3. Activate the virtual environment
+On macOS or Linux:
+```
+source venv/bin/activate
+```
+After activation, the terminal prompt should begin with:
+(venv)
 
-4. **Run the Streamlit application:**
-   ```bash
-   streamlit run app.py
-   ```
+4. Install the required packages
+```
+python -m pip install -r requirements.txt
+```
+6. Run the Streamlit app
+```
+python -m streamlit run app.py
+```
+## 🧠 Educational Value
 
-## 🧠 Educational Value & MBZUAI Relevance
-
-This project demonstrates a foundational understanding of core artificial intelligence concepts, specifically focusing on **Explainable AI (XAI)** and distance-based algorithms. Rather than relying on imported, pre-trained black-box models, it implements the underlying mathematical logic (Euclidean distance) from scratch to ensure complete transparency. This aligns closely with the rigorous analytical and mathematical approach expected in advanced AI undergraduate programs like the one at MBZUAI. It showcases practical problem-solving, algorithm design, and user-centric data presentation.
+This project demonstrates a foundational understanding of core artificial intelligence concepts, specifically focusing on **Explainable AI (XAI)** and distance-based algorithms. Rather than relying on imported, pre-trained black-box models, it implements the underlying mathematical logic (Euclidean distance) from scratch to ensure complete transparency. This aligns closely with the rigorous analytical and mathematical approach expected in advanced AI undergraduate programs. It showcases practical problem-solving, algorithm design, and user-centric data presentation.
 
 ## 🔮 Future Enhancements
 
